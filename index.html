@@ -174,15 +174,6 @@
   .fg input,.fg textarea{width:100%;padding:0.85rem 1.1rem;background:var(--off);border:1.5px solid var(--border);color:var(--text);font-family:var(--sans);font-size:0.9rem;border-radius:12px;outline:none;transition:border-color 0.2s;}
   .fg input:focus,.fg textarea:focus{border-color:var(--deep);}
   .fg textarea{resize:vertical;min-height:120px;}
-  /* Form validation & feedback */
-  .req{color:var(--deep);}
-  .err-msg{display:none;font-size:0.72rem;color:var(--deep);margin-top:0.35rem;font-weight:500;}
-  .fg.has-err input,.fg.has-err textarea{border-color:var(--deep);background:#fff5f7;}
-  .fg.has-err .err-msg{display:block;}
-  .btn-send:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
-  .toast{margin-top:1rem;padding:1rem 1.2rem;border-radius:14px;font-size:0.84rem;font-weight:500;line-height:1.6;}
-  .toast-ok{background:#fde8ef;color:var(--dark);border:1px solid var(--light);}
-  .toast-err{background:#fff0f2;color:#a32d2d;border:1px solid #fcc;}
   .btn-send{width:100%;padding:1rem;background:linear-gradient(135deg,var(--deep),var(--mid));color:var(--white);border:none;font-family:var(--sans);font-size:0.9rem;font-weight:600;cursor:pointer;letter-spacing:0.05em;border-radius:100px;transition:opacity 0.2s,transform 0.2s;}
   .btn-send:hover{opacity:0.9;transform:translateY(-1px);}
 
@@ -192,6 +183,16 @@
   .social-row{display:flex;gap:0.8rem;}
   .soc{width:34px;height:34px;border-radius:50%;background:var(--white);border:1px solid var(--light);display:flex;align-items:center;justify-content:center;color:var(--deep);text-decoration:none;font-size:0.8rem;font-weight:700;transition:background 0.2s,color 0.2s;}
   .soc:hover{background:var(--deep);color:var(--white);}
+
+  /* FORM VALIDATION & NOTIF */
+  .req{color:var(--deep);font-size:0.85rem;}
+  .err-msg{display:none;font-size:0.72rem;color:var(--deep);font-weight:600;margin-top:0.35rem;}
+  .fg.has-err input,.fg.has-err textarea{border-color:var(--deep) !important;background:#fff5f7;}
+  .fg.has-err .err-msg{display:block;}
+  .btn-send:disabled{opacity:0.6;cursor:not-allowed;transform:none !important;}
+  .notif{margin-top:1rem;padding:1rem 1.2rem;border-radius:14px;font-size:0.84rem;font-weight:500;line-height:1.6;}
+  .notif-ok{background:#fde8ef;color:var(--dark);border:1px solid var(--light);}
+  .notif-err{background:#fff0f2;color:#a32d2d;border:1px solid #ffccd5;}
 
   /* ANIMATIONS */
   .fi{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease;}
@@ -434,15 +435,28 @@
       <div class="fi">
         <p class="ct-desc">Tertarik untuk berkolaborasi atau punya proyek menarik? Jangan ragu untuk menghubungi saya. Saya selalu terbuka untuk kesempatan baru dan tantangan yang menarik.</p>
         <div class="ct-links">
-          <a href="mailto:nenden@email.com" class="ct-link"><div class="ct-ico">✉</div><div><div class="ct-lbl">Email</div><div class="ct-val">nenden@email.com</div></div></a>
-          <a href="https://linkedin.com" target="_blank" class="ct-link"><div class="ct-ico">in</div><div><div class="ct-lbl">LinkedIn</div><div class="ct-val">linkedin.com/in/nenden</div></div></a>
-          <a href="https://github.com/nenden" target="_blank" class="ct-link"><div class="ct-ico">⊛</div><div><div class="ct-lbl">GitHub</div><div class="ct-val">github.com/nenden</div></div></a>
+          <a href="mailto:nenden@email.com" class="ct-link">
+            <div class="ct-ico">✉</div>
+            <div><div class="ct-lbl">Email</div><div class="ct-val">nenden@email.com</div></div>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="ct-link">
+            <div class="ct-ico">in</div>
+            <div><div class="ct-lbl">LinkedIn</div><div class="ct-val">linkedin.com/in/nenden</div></div>
+          </a>
+          <a href="https://github.com/nenden" target="_blank" class="ct-link">
+            <div class="ct-ico">⊛</div>
+            <div><div class="ct-lbl">GitHub</div><div class="ct-val">github.com/nenden</div></div>
+          </a>
         </div>
       </div>
+
       <div class="fi" style="transition-delay:0.1s">
-        <div class="fg" id="fg-name">
+        <!-- ★ GANTI value di bawah dengan Access Key dari web3forms.com ★ -->
+        <input type="hidden" id="w3f-key" value="YOUR_ACCESS_KEY_HERE">
+
+        <div class="fg" id="fg-nama">
           <label>Nama <span class="req">*</span></label>
-          <input type="text" id="ct-name" placeholder="Nama kamu" autocomplete="name">
+          <input type="text" id="ct-nama" placeholder="Nama kamu" autocomplete="name">
           <span class="err-msg">Nama wajib diisi</span>
         </div>
         <div class="fg" id="fg-email">
@@ -450,24 +464,26 @@
           <input type="email" id="ct-email" placeholder="email@contoh.com" autocomplete="email">
           <span class="err-msg">Masukkan email yang valid</span>
         </div>
-        <div class="fg" id="fg-subject">
+        <div class="fg" id="fg-subjek">
           <label>Subjek</label>
-          <input type="text" id="ct-subject" placeholder="Perihal pesan (opsional)">
+          <input type="text" id="ct-subjek" placeholder="Perihal pesan (opsional)">
         </div>
-        <div class="fg" id="fg-message">
+        <div class="fg" id="fg-pesan">
           <label>Pesan <span class="req">*</span></label>
-          <textarea id="ct-message" placeholder="Tulis pesanmu di sini..."></textarea>
+          <textarea id="ct-pesan" placeholder="Tulis pesanmu di sini..."></textarea>
           <span class="err-msg">Pesan wajib diisi</span>
         </div>
-        <button class="btn-send" id="btn-send" onclick="sendEmail()">
-          <span id="btn-text">Kirim Pesan 💌</span>
-          <span id="btn-loading" style="display:none">⏳ Mengirim...</span>
+
+        <button class="btn-send" id="btn-send" onclick="kirimPesan()">
+          <span id="btn-txt">Kirim Pesan 💌</span>
+          <span id="btn-load" style="display:none">⏳ Mengirim...</span>
         </button>
-        <div id="toast-ok" class="toast toast-ok" style="display:none">
+
+        <div id="notif-ok" class="notif notif-ok" style="display:none">
           ✅ Pesan berhasil dikirim! Terima kasih, saya akan segera membalas.
         </div>
-        <div id="toast-err" class="toast toast-err" style="display:none">
-          ❌ Gagal mengirim. Coba lagi atau hubungi langsung via email di bawah.
+        <div id="notif-err" class="notif notif-err" style="display:none">
+          ❌ Gagal mengirim. Pastikan Access Key sudah benar, atau hubungi langsung via email.
         </div>
       </div>
     </div>
@@ -484,112 +500,101 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  /* ════════════════════════════════════════════════════════
-   *  CARA SETUP EMAILJS (gratis, tanpa backend/server)
-   * ════════════════════════════════════════════════════════
-   * 1. Daftar gratis di  https://www.emailjs.com
-   * 2. Add Email Service → pilih Gmail / Yahoo / dll
-   *    → salin Service ID  ke variabel EMAILJS_SERVICE_ID
-   * 3. Create Email Template → gunakan variabel ini di template:
-   *      {{from_name}}   — nama pengirim
-   *      {{from_email}}  — email pengirim
-   *      {{subject}}     — subjek pesan
-   *      {{message}}     — isi pesan
-   *    → salin Template ID ke variabel EMAILJS_TEMPLATE_ID
-   * 4. Account → API Keys → salin Public Key
-   *    → paste ke variabel EMAILJS_PUBLIC_KEY
-   * ════════════════════════════════════════════════════════ */
-  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  /* ══════════════════════════════════════════════════════
+   *  CARA AKTIFKAN KIRIM PESAN — WEB3FORMS (100% Gratis)
+   * ══════════════════════════════════════════════════════
+   *  1. Buka  https://web3forms.com
+   *  2. Masukkan email kamu → klik "Create Access Key"
+   *  3. Cek inbox emailmu → salin Access Key yang dikirim
+   *  4. Ganti tulisan YOUR_ACCESS_KEY_HERE di atas
+   *     (di dalam tag <input id="w3f-key" value="...">)
+   * ══════════════════════════════════════════════════════ */
 
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-
-  /* ── Validasi form ── */
-  function validate() {
-    let valid = true;
-    const rules = [
-      { fg: 'fg-name',    id: 'ct-name',    ok: v => v.trim() !== '' },
-      { fg: 'fg-email',   id: 'ct-email',   ok: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
-      { fg: 'fg-message', id: 'ct-message', ok: v => v.trim() !== '' },
+  /* ── Validasi ── */
+  function validasi() {
+    let oke = true;
+    const cek = [
+      { fg:'fg-nama',  id:'ct-nama',  fn: v => v.trim() !== '' },
+      { fg:'fg-email', id:'ct-email', fn: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+      { fg:'fg-pesan', id:'ct-pesan', fn: v => v.trim() !== '' },
     ];
-    rules.forEach(r => {
-      const val = document.getElementById(r.id).value;
-      const fgEl = document.getElementById(r.fg);
-      if (r.ok(val)) {
-        fgEl.classList.remove('has-err');
-      } else {
-        fgEl.classList.add('has-err');
-        valid = false;
-      }
+    cek.forEach(c => {
+      const val  = document.getElementById(c.id).value;
+      const elFg = document.getElementById(c.fg);
+      if (c.fn(val)) { elFg.classList.remove('has-err'); }
+      else           { elFg.classList.add('has-err'); oke = false; }
     });
-    return valid;
+    return oke;
   }
 
-  /* Hapus error saat user mulai mengetik */
-  ['ct-name','ct-email','ct-message'].forEach(id => {
-    document.getElementById(id).addEventListener('input', function() {
-      this.closest('.fg').classList.remove('has-err');
-    });
+  /* Hapus error saat user mengetik */
+  ['ct-nama','ct-email','ct-pesan'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', function(){ this.closest('.fg').classList.remove('has-err'); });
   });
 
-  /* ── Kirim email ── */
-  function sendEmail() {
-    if (!validate()) return;
+  /* ── Kirim pesan via Web3Forms ── */
+  function kirimPesan() {
+    if (!validasi()) return;
 
-    const btn     = document.getElementById('btn-send');
-    const btnText = document.getElementById('btn-text');
-    const btnLoad = document.getElementById('btn-loading');
-    const toastOk = document.getElementById('toast-ok');
-    const toastEr = document.getElementById('toast-err');
+    const btn      = document.getElementById('btn-send');
+    const btnTxt   = document.getElementById('btn-txt');
+    const btnLoad  = document.getElementById('btn-load');
+    const notifOk  = document.getElementById('notif-ok');
+    const notifErr = document.getElementById('notif-err');
+    const accessKey = document.getElementById('w3f-key').value;
 
-    /* Loading state */
-    btn.disabled          = true;
-    btnText.style.display = 'none';
+    btn.disabled       = true;
+    btnTxt.style.display = 'none';
     btnLoad.style.display = 'inline';
-    toastOk.style.display = 'none';
-    toastEr.style.display = 'none';
+    notifOk.style.display  = 'none';
+    notifErr.style.display = 'none';
 
-    const params = {
-      from_name:  document.getElementById('ct-name').value.trim(),
-      from_email: document.getElementById('ct-email').value.trim(),
-      subject:    document.getElementById('ct-subject').value.trim() || 'Pesan dari Portfolio',
-      message:    document.getElementById('ct-message').value.trim(),
+    const payload = {
+      access_key: accessKey,
+      name:       document.getElementById('ct-nama').value.trim(),
+      email:      document.getElementById('ct-email').value.trim(),
+      subject:    document.getElementById('ct-subjek').value.trim() || 'Pesan dari Portfolio Nenden',
+      message:    document.getElementById('ct-pesan').value.trim(),
     };
 
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-      .then(() => {
-        toastOk.style.display = 'block';
-        /* Reset form */
-        ['ct-name','ct-email','ct-subject','ct-message'].forEach(id => {
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        notifOk.style.display = 'block';
+        ['ct-nama','ct-email','ct-subjek','ct-pesan'].forEach(id => {
           document.getElementById(id).value = '';
         });
-      })
-      .catch(err => {
-        console.error('EmailJS error:', err);
-        toastEr.style.display = 'block';
-      })
-      .finally(() => {
-        btn.disabled          = false;
-        btnText.style.display = 'inline';
-        btnLoad.style.display = 'none';
-      });
+      } else {
+        throw new Error(data.message || 'Gagal');
+      }
+    })
+    .catch(err => {
+      console.error('Web3Forms error:', err);
+      notifErr.style.display = 'block';
+    })
+    .finally(() => {
+      btn.disabled         = false;
+      btnTxt.style.display = 'inline';
+      btnLoad.style.display = 'none';
+    });
   }
 
-  /* ── Menu & Scroll ── */
-  function toggleMenu() {
-    document.getElementById('mm').classList.toggle('open');
-  }
+  /* ── Menu toggle ── */
+  function toggleMenu() { document.getElementById('mm').classList.toggle('open'); }
 
+  /* ── Scroll animation ── */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('vis');
-        e.target.querySelectorAll('.bar-fill').forEach(b => {
-          b.style.width = b.dataset.w + '%';
-        });
+        e.target.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
       }
     });
   }, { threshold: 0.1 });
