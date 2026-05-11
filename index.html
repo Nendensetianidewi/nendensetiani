@@ -5,21 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nenden — Portfolio</title>
   
-  <!-- PWA LEVEL 2: App Identity (WAJIB) -->
+  <!-- PWA LEVEL 3: Splash Screen & Fullscreen Optimization -->
+  <!-- Menghubungkan manifest untuk identitas aplikasi dan splash screen -->
   <link rel="manifest" href="/manifest.json">
+  
+  <!-- Warna bar status di Android (Senada dengan variabel --deep) -->
   <meta name="theme-color" content="#5d4037">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Optimasi khusus iOS (iPhone/iPad) agar tampil Fullscreen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="CV Nenden">
   
-  <!-- Icon untuk iOS/Safari -->
-  <link rel="apple-touch-icon" href="/logo192.jpeg">
+  <!-- Ikon Resolusi Tinggi untuk Ikon Home Screen & Splash Screen iOS[cite: 1] -->
+  <link rel="apple-touch-icon" href="/logo512.png">
 
+  <!-- Link Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --white: #ffffff;
-      --off: #fdfaf7;
+      --off: #fdfaf7; /* Warna ini harus sama dengan background_color di manifest.json[cite: 1] */
       --soft: #f5ede4;
       --light: #e6d5c3;
       --pink: #b08d6d;
@@ -37,36 +44,30 @@
     html { scroll-behavior: smooth; }
     body { background: var(--white); color: var(--text); font-family: var(--sans); font-weight: 400; overflow-x: hidden; }
     
-    /* Blob background effects */
+    /* Background Blobs */
     .blob { position: fixed; pointer-events: none; border-radius: 50%; filter: blur(90px); opacity: 0.25; z-index: 0; }
     .blob1 { width: 520px; height: 520px; background: var(--light); top: -140px; right: -100px; }
     .blob2 { width: 420px; height: 420px; background: var(--soft); bottom: 8%; left: -90px; }
 
     /* Navigation */
     nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(93, 64, 55, 0.08); }
     .logo { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--text); }
     .logo span { color: var(--deep); font-style: italic; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--muted); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--deep); }
     
     /* Hero Section */
     #home { min-height: 100vh; display: flex; align-items: center; padding: 6rem 2.5rem 4rem; position: relative; overflow: hidden; }
     .hero-inner { max-width: 1160px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
     .hero-title { font-family: var(--serif); font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 700; line-height: 1.05; color: var(--text); margin-bottom: 1.4rem; }
     .hero-title em { color: var(--deep); font-style: italic; }
-    .hero-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); max-width: 420px; margin-bottom: 2.5rem; }
     
     .btn { padding: 0.82rem 1.9rem; font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.06em; cursor: pointer; text-decoration: none; transition: all 0.25s; display: inline-block; font-weight: 600; border-radius: 100px; }
     .btn-pink { background: var(--deep); color: var(--white); border: 2px solid var(--deep); }
 
     .photo-ring { position: relative; width: 360px; height: 360px; border-radius: 50%; background: var(--soft); border: 2px solid var(--light); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .photo-ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-
-    section { padding: 6rem 2.5rem; position: relative; z-index: 1; }
-    .container { max-width: 1160px; margin: 0 auto; }
-    .sec-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.1; margin-bottom: 3rem; color: var(--text); }
-    .sec-title span { color: var(--deep); font-style: italic; }
 
     footer { background: var(--off); border-top: 1px solid var(--border); padding: 2.5rem; display: flex; justify-content: space-between; align-items: center; }
 
@@ -110,24 +111,22 @@
   </div>
 </section>
 
-<!-- ... (Bagian about, skills, dll tetap sama) ... -->
-
 <footer>
   <div class="logo">Nenden<span>.Dev</span></div>
   <div style="font-size: 0.8rem; color: var(--muted);">© 2026 Nenden Setiani. Bandung.</div>
 </footer>
 
-<!-- PWA LEVEL 2: Registrasi Service Worker (WAJIB) -->
+<!-- PWA LEVEL 3: Registrasi Service Worker[cite: 1] -->
 <script>
-  if ('serviceWorker' in navigator) {[cite: 1]
-    window.addEventListener('load', function() {[cite: 1]
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {[cite: 1]
-        console.log('PWA: ServiceWorker registration successful');[cite: 1]
-      }, function(err) {[cite: 1]
-        console.log('PWA: ServiceWorker registration failed: ', err);[cite: 1]
-      });[cite: 1]
-    });[cite: 1]
-  }[cite: 1]
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        console.log('PWA: ServiceWorker registration successful');
+      }, function(err) {
+        console.log('PWA: ServiceWorker registration failed: ', err);
+      });
+    });
+  }
 
   // Script efek scroll nav
   window.addEventListener('scroll', () => {
