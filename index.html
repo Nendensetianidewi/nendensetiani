@@ -190,7 +190,7 @@
 <section id="about">
   <h2 class="section-title">Tentang <em>Saya</em></h2>
   <div class="about-content">
-    <p>Saya adalah mahasiswi Jurusan Sistem Informasi di Fakultas Komputer[cite: 1, 2]. Memiliki ketertarikan mendalam dalam dunia Web Mobile Development, manajemen basis data, serta perancangan antarmuka aplikasi yang intuitif dan berorientasi pada kenyamanan pengguna mobile.</p>
+    <p>Saya adalah mahasiswi Jurusan Sistem Informasi di Fakultas Komputer. Memiliki ketertarikan mendalam dalam dunia Web Mobile Development, manajemen basis data, serta perancangan antarmuka aplikasi yang intuitif dan berorientasi pada kenyamanan pengguna mobile.</p>
   </div>
 </section>
 
@@ -213,8 +213,8 @@
     <div class="timeline-item">
       <div class="timeline-date">2023 - Sekarang</div>
       <div class="timeline-title">Strata 1 (S1) - Sistem Informasi</div>
-      <div class="timeline-subtitle">Fakultas Komputer [cite: 1, 2]</div>
-      <p style="font-size: 0.85rem; color: var(--muted);">Fokus mendalami mata kuliah Pemrograman Web Mobile[cite: 4], rekayasa perangkat lunak, sistem basis data, dan analisis proses bisnis.</p>
+      <div class="timeline-subtitle">Fakultas Komputer</div>
+      <p style="font-size: 0.85rem; color: var(--muted);">Fokus mendalami mata kuliah Pemrograman Web Mobile, rekayasa perangkat lunak, sistem basis data, dan analisis proses bisnis.</p>
     </div>
   </div>
 </section>
@@ -226,7 +226,7 @@
       <div class="timeline-date">2026</div>
       <div class="timeline-title">UI/UX & Frontend Developer Core</div>
       <div class="timeline-subtitle">Smart Campus Mobile System</div>
-      <p style="font-size: 0.85rem; color: var(--muted);">Berhasil merancang arsitektur navigasi halaman tunggal (SPA) [cite: 43, 44] serta menerapkan integrasi penyimpanan data berbasis offline IndexedDB[cite: 111, 125].</p>
+      <p style="font-size: 0.85rem; color: var(--muted);">Berhasil merancang arsitektur navigasi halaman tunggal (SPA) serta menerapkan integrasi penyimpanan data berbasis offline IndexedDB.</p>
     </div>
   </div>
 </section>
@@ -238,27 +238,27 @@
       <div class="card-banner">
         <i class="fa-solid fa-graduation-cap"></i>
         <h3>Smart Campus Mobile</h3>
-        <p>Platform Asisten Akademik Berbasis Progressive Web App [cite: 7, 107]</p>
+        <p>Platform Asisten Akademik Berbasis Progressive Web App</p>
       </div>
       
       <div class="card-body">
-        <span class="badge">UAS Web Mobile Project [cite: 7]</span>
-        <p>Aplikasi web mobile-first yang dirancang khusus untuk mengintegrasikan kebutuhan data akademik mahasiswa secara instan, interaktif, dan responsif[cite: 33, 40].</p>
+        <span class="badge">UAS Web Mobile Project</span>
+        <p>Aplikasi web mobile-first yang dirancang khusus untuk mengintegrasikan kebutuhan data akademik mahasiswa secara instan, interaktif, dan responsif.</p>
         
         <ul class="feature-list">
-          <li><i class="fa-solid fa-circle-check"></i> <span><strong>SPA Navigation:</strong> Transisi menu cepat tanpa reload[cite: 43, 44].</span></li>
-          <li><i class="fa-solid fa-circle-check"></i> <span><strong>Smart Schedule:</strong> Render data jadwal kuliah dinamis dari JSON[cite: 55, 64].</span></li>
-          <li><i class="fa-solid fa-circle-check"></i> <span><strong>Mission Tracker:</strong> Penyimpanan data tugas via IndexedDB[cite: 70, 125].</span></li>
-          <li><i class="fa-solid fa-circle-check"></i> <span><strong>PWA Ready:</strong> Dapat di-install di HP & support Offline Mode[cite: 107, 111, 115].</span></li>
-          <li><i class="fa-solid fa-circle-check"></i> <span><strong>Hardware API:</strong> Pendeteksi koordinat Geolocation & Dark Mode[cite: 97, 130].</span></li>
+          <li><i class="fa-solid fa-circle-check"></i> <span><strong>SPA Navigation:</strong> Transisi menu cepat tanpa reload.</span></li>
+          <li><i class="fa-solid fa-circle-check"></i> <span><strong>Smart Schedule:</strong> Render data jadwal kuliah dinamis dari JSON.</span></li>
+          <li><i class="fa-solid fa-circle-check"></i> <span><strong>Mission Tracker:</strong> Penyimpanan data tugas via IndexedDB.</span></li>
+          <li><i class="fa-solid fa-circle-check"></i> <span><strong>PWA Ready:</strong> Dapat di-install di HP & support Offline Mode.</span></li>
+          <li><i class="fa-solid fa-circle-check"></i> <span><strong>Hardware API:</strong> Pendeteksi koordinat Geolocation & Dark Mode.</span></li>
         </ul>
         
         <div class="tech-title">Tech Stack</div>
         <div class="tech-stack">
           <span class="tech-item">Tailwind CSS v4</span>
-          <span class="tech-item">jQuery & AJAX [cite: 90]</span>
-          <span class="tech-item">IndexedDB [cite: 125]</span>
-          <span class="tech-item">Service Worker [cite: 110]</span>
+          <span class="tech-item">jQuery & AJAX</span>
+          <span class="tech-item">IndexedDB</span>
+          <span class="tech-item">Service Worker</span>
         </div>
         
         <div class="card-actions">
@@ -279,7 +279,7 @@
   <div class="cert-grid">
     <div class="cert-card">
       <div class="cert-title">Mobile-First Web Developer Specialist</div>
-      <div class="cert-issuer">Fakultas Komputer [cite: 1]</div>
+      <div class="cert-issuer">Fakultas Komputer</div>
     </div>
   </div>
 </section>
@@ -347,7 +347,6 @@
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Ambil data inputan form
     const contactData = {
       nama: document.getElementById('name').value,
       email: document.getElementById('email').value,
@@ -356,13 +355,8 @@
       waktuSimpan: new Date().toLocaleString()
     };
     
-    // Simpan data kontak ke dalam LocalStorage browser
     localStorage.setItem('pesan_kontak_' + Date.now(), JSON.stringify(contactData));
-    
-    // Berikan notifikasi sukses ke user
     alert('Terima kasih ' + contactData.nama + '! Data pesan Anda telah berhasil disimpan di sistem lokal browser.');
-    
-    // Reset form field setelah berhasil submit
     this.reset();
   });
 </script>
