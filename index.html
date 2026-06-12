@@ -19,6 +19,7 @@
 
     <div class="w-full max-w-md h-[92vh] bg-slate-50 shadow-2xl relative flex flex-col overflow-hidden sm:rounded-[36px] sm:border-[8px] sm:border-slate-800 dark:bg-slate-950 dark:text-slate-100">
         
+        <!-- --- LOGIKA DASHBOARD & LOGIN (LEVEL 3) --- -->
         <div id="splash-screen" class="absolute inset-0 bg-linear-to-br from-blue-600 via-indigo-600 to-violet-700 z-50 flex flex-col items-center justify-center text-white space-y-4">
             <div class="bg-white/10 p-6 rounded-full backdrop-blur-md animate-bounce shadow-2xl">
                 <i class="fa-solid fa-graduation-cap text-5xl"></i>
@@ -74,14 +75,17 @@
                 <span id="toast-msg">Notifikasi</span>
             </div>
 
+            <!-- --- SKELETON LOADER EXPERIENCE (LEVEL 8) --- -->
             <div id="skeleton-loader" class="hidden p-5 space-y-4 flex-1 overflow-y-auto no-scrollbar">
                 <div class="h-32 bg-slate-200 dark:bg-slate-800 rounded-2xl animate-pulse"></div>
                 <div class="h-20 bg-slate-200 dark:bg-slate-800 rounded-2xl animate-pulse"></div>
                 <div class="h-20 bg-slate-200 dark:bg-slate-800 rounded-2xl animate-pulse"></div>
             </div>
 
+            <!-- --- CORE SPA PAGES LAYER --- -->
             <main id="spa-pages" class="flex-1 overflow-y-auto p-5 no-scrollbar bg-slate-50/60 dark:bg-slate-900/40 z-10">
                 
+                <!-- MENU DASHBOARD -->
                 <section id="page-dashboard" class="spa-page space-y-4">
                     <div class="bg-linear-to-br from-blue-600 via-indigo-600 to-blue-700 p-5 rounded-2xl text-white shadow-xl relative overflow-hidden">
                         <div class="absolute -right-4 -bottom-4 text-white/10 text-8xl font-black"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -90,9 +94,10 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-3">
+                        <!-- ASYNCHRONOUS QUOTE (LEVEL 7) -->
                         <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 shadow-xs">
                             <span class="text-[9px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center"><i class="fa-solid fa-quote-left mr-1"></i> Motivasi</span>
-                            <p id="api-quote" class="text-[11px] italic mt-1.5 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">"Jangan pernah berhenti belajar, karena hidup tak pernah berhenti mengajarkan."</p>
+                            <p id="api-quote" class="text-[11px] italic mt-1.5 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">"Loading quote..."</p>
                         </div>
                         <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 shadow-xs">
                             <span class="text-[9px] font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider flex items-center"><i class="fa-solid fa-cloud-sun mr-1"></i> Cuaca</span>
@@ -115,6 +120,7 @@
                     </div>
                 </section>
 
+                <!-- MENU JADWAL (LEVEL 5) -->
                 <section id="page-jadwal" class="spa-page hidden space-y-3">
                     <div class="flex items-center justify-between">
                         <h4 class="text-sm font-black">Jadwal Kuliah Pintar</h4>
@@ -123,6 +129,7 @@
                     <div id="schedule-container" class="space-y-2.5"></div>
                 </section>
 
+                <!-- MENU TUGAS / MISSION SYSTEM (LEVEL 6 & 10) -->
                 <section id="page-tugas" class="spa-page hidden space-y-4">
                     <div class="flex justify-between items-center bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 shadow-xs">
                         <div>
@@ -145,6 +152,7 @@
                     <div id="task-list" class="space-y-2"></div>
                 </section>
 
+                <!-- MENU NOTIFIKASI -->
                 <section id="page-notifikasi" class="spa-page hidden space-y-2.5">
                     <h4 class="text-sm font-black mb-1">Pemberitahuan</h4>
                     <div class="p-3.5 bg-blue-50/60 dark:bg-blue-950/40 rounded-xl border border-blue-100/60 dark:border-blue-900/40 flex space-x-3">
@@ -156,6 +164,7 @@
                     </div>
                 </section>
 
+                <!-- MENU PROFIL / SHOWCASE DEVELOPER & EMBED VIDEO (LEVEL 9 & 10) -->
                 <section id="page-profil" class="spa-page hidden space-y-3">
                     <div class="text-center py-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800/60 p-4 shadow-xs">
                         <div class="w-16 h-16 bg-linear-to-tr from-blue-600 to-indigo-600 rounded-full mx-auto flex items-center justify-center text-white text-2xl font-black shadow-md">
@@ -165,14 +174,32 @@
                         <p class="text-[10px] text-slate-400">Mahasiswa Sistem Informasi</p>
                     </div>
 
+                    <!-- SEKSI VIDEO EMBED DEMO PWA (Kewajiban Tantangan Level 9) -->
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/60 space-y-2.5 shadow-xs">
+                        <h5 class="text-[10px] font-bold uppercase tracking-widest text-red-500 flex items-center">
+                            <i class="fa-brands fa-youtube mr-1.5 text-xs"></i> Bukti Implementasi PWA (Level 9)
+                        </h5>
+                        <!-- Wadah Iframe Responsif rasio 16:9 -->
+                        <div class="w-full aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                            <!-- GANTI 'KODE_VIDEO_YOUTUBE' dengan ID video hasil screenrecord Anda -->
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/KODE_VIDEO_YOUTUBE" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="text-[10px] text-slate-400 dark:text-slate-500 leading-relaxed italic">
+                            *Video demonstrasi aplikasi berbasis Mobile PWA saat dijalankan langsung melalui perangkat smartphone hardware.
+                        </p>
+                    </div>
+
+                    <!-- SEKSI PORTFOLIO & SHOWCASE LINK (LEVEL 10) -->
                     <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/60 space-y-2.5 shadow-xs">
                         <h5 class="text-[10px] font-bold uppercase tracking-widest text-blue-500">Showcase Developer Link</h5>
                         
-                        <a href="https://youtube.com/shorts/70xJzqv0T5Y?si=hmGeZ5WVtAtTpsvy" target="_blank" class="flex items-center justify-between p-3 bg-linear-to-r from-red-500/10 to-pink-500/10 border border-red-200 dark:border-red-900/40 hover:from-red-500/20 hover:to-pink-500/20 rounded-xl text-xs font-bold transition">
-                            <span class="flex items-center text-red-600 dark:text-red-400"><i class="fa-brands fa-youtube mr-2.5 text-base"></i> Demo UAS PWA di HP (Shorts)</span>
-                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
-                        </a>
-
                         <a href="https://nendensetiani.vercel.app/" target="_blank" class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-xl text-xs font-bold transition">
                             <span class="flex items-center"><i class="fa-solid fa-address-card mr-2.5 text-blue-500 text-sm"></i> Beranda CV Online</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
@@ -186,6 +213,7 @@
 
             </main>
 
+            <!-- --- NAVIGATION BAR BOTOM --- -->
             <nav class="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800/80 h-16 flex items-center justify-around shrink-0 px-2 z-30 shadow-md">
                 <button data-target="page-dashboard" class="nav-btn flex flex-col items-center justify-center flex-1 h-full text-blue-600 font-bold transition">
                     <i class="fa-solid fa-house-chimney text-base"></i>
@@ -213,52 +241,36 @@
         </div>
     </div>
 
+    <!-- --- LOGIKA INTERAKTIF JAVASCRIPT & AJAX JQUERY --- -->
     <script>
-        // DATA OBJECT JSON (Level 5)
         const dataMataKuliah = [
             { matkul: "Pemrograman Web Mobile", jam: "08:00 - 10:30", ruangan: "Lab Komputer 3", hariIni: true },
             { matkul: "Analisis & Perancangan Sistem", jam: "11:00 - 13:30", ruangan: "Ruang R.402", hariIni: false },
             { matkul: "Manajemen Basis Data", jam: "14:00 - 16:30", ruangan: "Lab Komputer 1", hariIni: false }
         ];
 
-        // Placeholder functions to prevent reference errors
-        function showToast(msg) {
-            $('#toast-msg').text(msg);
-            $('#toast').removeClass('hidden').fadeIn().delay(2000).fadeOut();
-        }
-        function fetchQuoteAPI() {
-            // Placeholder atau jika ada logika panggil API quote
-        }
-        function initMissionsIndexedDB() {
-            // Placeholder inisialisasi database tugas lokal
-        }
-
         $(document).ready(function() {
             
-            // --- LEVEL 3: MANAGEMENT SPLASH SCREEN ---
+            // --- SPLASH SCREEN ANIMATION ---
             setTimeout(function() {
                 $('#splash-screen').fadeOut('slow'); 
             }, 2500);
 
-            // --- LEVEL 3: LOGIKA LOGIN SANGAT BEBAS AKSES ---
+            // --- LOGIN HANDLE ---
             $('#form-login').on('submit', function(e) {
                 e.preventDefault();
-                
                 const userIn = $('#login-username').val().trim();
-                if(userIn) {
-                    $('#user-display-name').text(userIn);
-                }
 
                 $('#login-page').fadeOut('medium', function() {
                     $('#main-app').removeClass('hidden'); 
-                    showToast(`Selamat Datang, ${userIn || 'User'}!`);
+                    showToast(`Selamat Datang, ${userIn}!`);
                     fetchQuoteAPI();
                     renderScheduleGrid();
                     initMissionsIndexedDB(); 
                 });
             });
 
-            // --- LEVEL 4: SPA NAVIGATION SYSTEM ---
+            // --- SPA NAVIGATION SYSTEM ---
             $('.nav-btn').on('click', function() {
                 const targetPage = $(this).data('target');
                 
@@ -277,7 +289,7 @@
                 }, 400); 
             });
 
-            // --- LEVEL 5: SCHEDULE SYSTEM GRID DATA ---
+            // --- SCHEDULE RENDERING ---
             function renderScheduleGrid() {
                 let html = '';
                 dataMataKuliah.forEach(item => {
@@ -285,24 +297,167 @@
                     html += `
                         <div class="p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 shadow-xs ${lineStyle}">
                             <div class="flex justify-between items-start">
-                                <div>
-                                    <h5 class="text-xs font-black text-slate-800 dark:text-slate-200">${item.matkul}</h5>
-                                    <p class="text-[10px] text-slate-400 mt-1"><i class="fa-regular fa-clock mr-1"></i> ${item.jam} | ${item.ruangan}</p>
-                                </div>
-                                ${item.hariIni ? '<span class="text-[8px] bg-emerald-500 text-white font-bold px-1.5 py-0.5 rounded-sm uppercase">Hari Ini</span>' : ''}
+                                <h5 class="text-xs font-black text-slate-800 dark:text-slate-200">${item.matkul}</h5>
+                                ${item.hariIni ? '<span class="text-[8px] bg-emerald-500 text-white px-1.5 py-0.5 rounded font-black uppercase tracking-wide">Now</span>' : ''}
                             </div>
-                        </div>`;
+                            <div class="flex space-x-4 text-[11px] text-slate-400 mt-2.5">
+                                <span><i class="fa-regular fa-clock mr-1 text-blue-500"></i> ${item.jam}</span>
+                                <span><i class="fa-solid fa-location-dot mr-1 text-rose-500"></i> ${item.ruangan}</span>
+                            </div>
+                        </div>
+                    `;
                 });
                 $('#schedule-container').html(html);
             }
 
-            // Dark Mode toggle logic handler
+            // --- AJAX CALL (LEVEL 7) ---
+            function fetchQuoteAPI() {
+                $.ajax({
+                    url: 'https://dummyjson.com/quotes/random',
+                    method: 'GET',
+                    success: function(res) {
+                        $('#api-quote').text(`"${res.quote}" — ${res.author}`);
+                    },
+                    error: function() {
+                        $('#api-quote').text('"Tetap produktif dan semangat membangun portofolio koding terbaik!"');
+                    }
+                });
+            }
+
+            // --- TOAST SYSTEMS ---
+            function showToast(text) {
+                $('#toast-msg').text(text);
+                $('#toast').fadeIn().css('display', 'flex');
+                setTimeout(function() { $('#toast').fadeOut(); }, 3000);
+            }
+
+            // --- DARK MODE CONTROLLER ---
             $('#btn-dark-mode').on('click', function() {
                 $('html').toggleClass('dark');
-                $(this).find('i').toggleClass('fa-moon fa-sun');
+                const isDark = $('html').hasClass('dark');
+                $(this).html(isDark ? '<i class="fa-solid fa-sun text-sm"></i>' : '<i class="fa-solid fa-moon text-sm"></i>');
+                showToast(isDark ? "Mode gelap aktif" : "Mode terang aktif");
+            });
+
+            // --- GEOLOCATION API ---
+            $('#btn-geolocation').on('click', function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(pos) {
+                        showToast(`Lokasi Terkunci: ${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)}`);
+                    }, function() {
+                        showToast("Izin lokasi ditolak.");
+                    });
+                } else {
+                    showToast("Browser Anda tidak mendukung lokasi.");
+                }
+            });
+
+            // --- STORAGE SYSTEMS (INDEXEDDB LEVEL 6) ---
+            let localDb;
+            function initMissionsIndexedDB() {
+                const request = indexedDB.open("SmartCampusDB", 1);
+                
+                request.onupgradeneeded = function(e) {
+                    localDb = e.target.result;
+                    localDb.createObjectStore("missions", { keyPath: "id", autoIncrement: true });
+                };
+
+                request.onsuccess = function(e) {
+                    localDb = e.target.result;
+                    fetchSavedMissions();
+                };
+            }
+
+            function fetchSavedMissions() {
+                const trans = localDb.transaction(["missions"], "readonly");
+                const store = trans.objectStore("missions");
+                const req = store.getAll();
+
+                req.onsuccess = function() {
+                    const tasks = req.result;
+                    if (tasks.length === 0) {
+                        const initialData = [
+                            { text: "Pelajari kerangka SPA modular", done: true },
+                            { text: "Koneksikan database lokal dengan UI", done: false }
+                        ];
+                        const writeTrans = localDb.transaction(["missions"], "readwrite");
+                        const writeStore = writeTrans.objectStore("missions");
+                        initialData.forEach(task => writeStore.add(task));
+                        fetchSavedMissions();
+                        return;
+                    }
+                    renderMissionsView(tasks);
+                };
+            }
+
+            function renderMissionsView(tasks) {
+                let listHtml = '';
+                let successTotal = 0;
+
+                tasks.forEach(item => {
+                    if (item.done) successTotal++;
+                    const isChecked = item.done ? 'checked' : '';
+                    const strike = item.done ? 'line-through text-slate-400 font-normal' : 'font-semibold text-slate-700 dark:text-slate-200';
+
+                    listHtml += `
+                        <div class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800/60 shadow-xs">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" data-id="${item.id}" ${isChecked} class="item-checkbox h-4 w-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                                <span class="text-xs ${strike}">${item.text}</span>
+                            </div>
+                            ${item.done ? '<span class="text-[8px] bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded font-bold uppercase">Done</span>' : '<span class="text-[8px] bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 px-2 py-0.5 rounded font-bold uppercase">Misi</span>'}
+                        </div>
+                    `;
+                });
+
+                $('#task-list').html(listHtml);
+
+                const scorePercentage = tasks.length > 0 ? Math.round((successTotal / tasks.length) * 100) : 0;
+                $('#progress-text').text(`${scorePercentage}% Selesai`);
+                $('#progress-bar').css('width', `${scorePercentage}%`);
+            }
+
+            $('#form-tugas').on('submit', function(e) {
+                e.preventDefault();
+                const textVal = $('#input-tugas').val();
+                
+                const trans = localDb.transaction(["missions"], "readwrite");
+                const store = trans.objectStore("missions");
+                store.add({ text: textVal, done: false });
+
+                trans.oncomplete = function() {
+                    $('#input-tugas').val('');
+                    fetchSavedMissions();
+                    showToast("Misi tugas baru disimpan!");
+                };
+            });
+
+            $(document).on('change', '.item-checkbox', function() {
+                const targetId = parseInt($(this).data('id'));
+                const state = $(this).is(':checked');
+
+                const trans = localDb.transaction(["missions"], "readwrite");
+                const store = trans.objectStore("missions");
+                
+                store.get(targetId).onsuccess = function(e) {
+                    const data = e.target.result;
+                    data.done = state;
+                    store.put(data);
+                };
+
+                trans.oncomplete = function() {
+                    fetchSavedMissions();
+                    showToast(state ? "Tugas diselesaikan!" : "Tugas dibuka kembali.");
+                };
             });
         });
+
+        // --- PWA SERVICE WORKER ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(e => console.error(e));
+            });
+        }
     </script>
 </body>
-</html>    
-      
+</html>
