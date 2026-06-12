@@ -164,8 +164,8 @@
                     </div>
                 </section>
 
-                <!-- MENU PROFIL / SHOWCASE DEVELOPER & EMBED VIDEO (LEVEL 9 & 10) -->
-                <section id="page-profil" class="spa-page hidden space-y-3">
+                <!-- MENU PROFIL / SHOWCASE DEVELOPER & EMBED VIDEO (PORTFOLIO FIX ACCORDING TO MOCKUP) -->
+                <section id="page-profil" class="spa-page hidden space-y-4">
                     <div class="text-center py-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800/60 p-4 shadow-xs">
                         <div class="w-16 h-16 bg-linear-to-tr from-blue-600 to-indigo-600 rounded-full mx-auto flex items-center justify-center text-white text-2xl font-black shadow-md">
                             NS
@@ -174,26 +174,52 @@
                         <p class="text-[10px] text-slate-400">Mahasiswa Sistem Informasi</p>
                     </div>
 
-                    <!-- SEKSI VIDEO EMBED DEMO PWA (Kewajiban Tantangan Level 9) -->
-                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/60 space-y-2.5 shadow-xs">
-                        <h5 class="text-[10px] font-bold uppercase tracking-widest text-red-500 flex items-center">
-                            <i class="fa-brands fa-youtube mr-1.5 text-xs"></i> Bukti Implementasi PWA (Level 9)
-                        </h5>
-                        <!-- Wadah Iframe Responsif rasio 16:9 -->
-                        <div class="w-full aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                            <!-- GANTI 'KODE_VIDEO_YOUTUBE' dengan ID video hasil screenrecord Anda -->
+                    <!-- SEKSI RESPONSIVE PORTFOLIO DENGAN PREVIEW YOUTUBE (PERSIS SEPERTI GAMBAR) -->
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/60 text-center shadow-xs">
+                        
+                        <!-- Tag / Badge Kategori Teknologi Diatas -->
+                        <div class="flex flex-wrap justify-center gap-1.5 mb-3.5">
+                            <span class="px-2.5 py-0.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 text-[10px] font-bold rounded-md border border-blue-100/50 dark:border-blue-900/30">HTML5 / CSS3</span>
+                            <span class="px-2.5 py-0.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 text-[10px] font-bold rounded-md border border-blue-100/50 dark:border-blue-900/30">jQuery SPA</span>
+                            <span class="px-2.5 py-0.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 text-[10px] font-bold rounded-md border border-blue-100/50 dark:border-blue-900/30">IndexedDB PWA</span>
+                        </div>
+
+                        <!-- Tombol Aksi Navigasi Utama -->
+                        <div class="flex flex-col space-y-1.5 max-w-xs mx-auto mb-5">
+                            <a href="#" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl text-[11px] tracking-wide text-center transition shadow-md shadow-blue-500/10">
+                                Launch App <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[9px]"></i>
+                            </a>
+                            <a href="https://github.com/" target="_blank" class="w-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold py-2 px-4 rounded-xl text-[11px] text-center border border-slate-200 dark:border-slate-700 transition">
+                                GitHub Repository
+                            </a>
+                        </div>
+
+                        <!-- Badge Status Utama -->
+                        <div class="inline-block px-3 py-0.5 bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 text-[9px] font-extrabold tracking-wider uppercase rounded-full mb-2">
+                            PWA CHALLENGE EVIDENCE
+                        </div>
+                        
+                        <!-- Judul Portofolio -->
+                        <h3 class="text-xs font-black text-slate-800 dark:text-white leading-tight px-1">
+                            Smart Campus Mobile PWA Demonstration
+                        </h3>
+                        
+                        <!-- Deskripsi Konten -->
+                        <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-2 mb-3.5 leading-relaxed text-center px-1">
+                            Bukti implementasi Progressive Web App (PWA) pada perangkat mobile yang menunjukkan instalasi aplikasi, login, navigasi SPA, dan penggunaan aplikasi secara langsung.
+                        </p>
+
+                        <!-- Wadah Iframe Responsif rasio 16:9 (Fiks URL Embed) -->
+                        <div class="w-full aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 shadow-inner">
                             <iframe 
                                 class="w-full h-full" 
-                                src="https://www.youtube.com/embed/KODE_VIDEO_YOUTUBE" 
-                                title="YouTube video player" 
+                                src="https://www.youtube.com/embed/cNU58KOsngY" 
+                                title="Smart Campus Mobile PWA Demonstration" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="text-[10px] text-slate-400 dark:text-slate-500 leading-relaxed italic">
-                            *Video demonstrasi aplikasi berbasis Mobile PWA saat dijalankan langsung melalui perangkat smartphone hardware.
-                        </p>
                     </div>
 
                     <!-- SEKSI PORTFOLIO & SHOWCASE LINK (LEVEL 10) -->
